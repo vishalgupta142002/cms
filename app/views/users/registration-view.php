@@ -1,3 +1,40 @@
+<?php
+
+$host = "localhost";
+$user_name = "root";
+$password = "";
+$database = "phpdb";
+$port = 3306;
+
+// Create Connection
+$conn = mysqli_connect($host, $user_name, $password, $database, $port);
+
+if(!$conn) {
+    die("Connection Failed: ".mysqli_connect_error());
+}else{
+   // die("Connected");
+    // exit();
+
+}
+$username = $_POST['username'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+
+
+
+$query = " INSERT INTO student (username, firstname, lastname) VALUES('$username', '$firstname', '$lastname')";
+
+$result = mysqli_query($conn, $query);
+
+if($result){
+    echo " <script>alert('Data has been inserted.');</script>";
+}else{
+    die("Something has been wrong.");
+}
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -39,8 +76,9 @@
 
 <body class="bg-light ">
 
-    <div class="container ">
+    <div class="container align-items: center  display: flex;">
         <main>
+
             <div class="py-5 text-center">
                 <img class="d-block mx-auto mb-4" src="../../../assets/image/logo.png" alt="" width="72" height="57">
                 <h2>Registration form</h2>
@@ -48,7 +86,7 @@
             </div>
 
             <div class="row g-3">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <h4 class="mb-3">Student Details</h4>
                     <form class="needs-validation" novalidate action="../../controllers/users/Register.php"
                         method="post">
@@ -67,7 +105,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" name="firstName" id="firstName"
+                                <input type="text" class="form-control" name="firstname" id="firstname"
                                     placeholder="Enter FirstName" value="" required maxlength="10">
                                 <div class="invalid-feedback">
                                     Valid first name is required.
@@ -76,7 +114,7 @@
 
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" name="lastName" id="lastName"
+                                <input type="text" class="form-control" name="lastname" id="lastname"
                                     placeholder="Enter Last Name" value="" required>
                                 <div class="invalid-feedback">
                                     Valid last name is required.
@@ -93,27 +131,28 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="email" class="form-label">Password <span class="text-muted"></span></label>
-                                <input type="email" class="form-control" name="password" id="password"
+                                <label for="password" class="form-label">Password <span
+                                        class="text-muted"></span></label>
+                                <input type="password" class="form-control" name="password" id="password"
                                     placeholder="please enter vaild password">
-                                <div class="invalid-feedback">
-                                    Please enter a valid password.
-                                </div>
+                                <!-- <div class="invalid-feedback"> -->
+                                Please enter a valid password.
+                                <!-- </div> -->
                             </div>
 
                         </div>
                         <div class="col-12">
-                            <label for="email" class="form-label">confirm Password <span
+                            <label for="password" class="form-label">confirm Password <span
                                     class="text-muted"></span></label>
-                            <input type="email" class="form-control" name="confirm_password" id="confirm_password"
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password"
                                 placeholder="please enter same confirm Password ">
-                            <div class="invalid-feedback">
-                                Please enter a valid confirm Password.
-                            </div>
+                            <!-- <div class="invalid-feedback"> -->
+                            Please enter a valid confirm Password.
+                            <!-- </div> -->
                         </div>
 
                         <div class="col-12">
-                            <label for="email" class="form-label">Gender <span class="text-muted"></span></label>
+                            <label for="gender" class="form-label">Gender <span class="text-muted"></span></label>
                             <div class="form-check">
                                 <input id="credit" name="gender" type="radio" class="form-check-input" checked required>
                                 <label class="form-check-label" for="credit">Male</label>
@@ -124,14 +163,14 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="address2" class="form-label">DOB <span class="text-muted"></span></label>
+                                <label for="dob" class="form-label">DOB <span class="text-muted"></span></label>
                                 <input type="date" class="form-control" name="dob" id="dob" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Please enter your Date oF Brith.
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="address2" class="form-label">Mobile <span class="text-muted"></span></label>
+                                <label for="number" class="form-label">Mobile <span class="text-muted"></span></label>
                                 <input type="number" class="form-control" name="mobile" id="mobile"
                                     placeholder="Enter vaild Mobile Number" required>
                                 <div class="invalid-feedback">
@@ -140,7 +179,7 @@
 
                             </div>
                             <div class="col-12">
-                                <label for="address2" class="form-label">Resume <span class="text-muted"></span></label>
+                                <label for="resume" class="form-label">Resume <span class="text-muted"></span></label>
                                 <input type="file" class="form-control" name="resume" id="resume" required>
                                 <div class="invalid-feedback">
                                     Please Choose your Resume.
