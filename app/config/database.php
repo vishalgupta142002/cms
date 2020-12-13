@@ -3,7 +3,7 @@
 $host = "localhost";
 $user_name = "root";
 $password = "";
-$database = "php";
+$database = "phpdb";
 $port = 3306;
 
 // Create Connection
@@ -14,6 +14,7 @@ if(!$conn) {
 }else{
    // die("Connected");
     // exit();
+
 }
 $username = $_POST['username'];
 $firstname = $_POST['firstname'];
@@ -21,12 +22,14 @@ $lastname = $_POST['lastname'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
+$dob = $_POST['dob'];
 $mobile = $_POST['mobile'];
 $city = $_POST['city'];
 $address = $_POST['address'];
 
 
-$query = " INSERT INTO student (username, firstname, lastname,email,password,confirm_password,mobile,city,address) VALUES('$username', '$firstname', '$lastname','$email','$password','$confirm_password','$mobile','$city','$address')";
+
+$query = " INSERT INTO student (username, firstname, lastname,email,password,confirm_password,dob,mobile,city,address) VALUES('$username', '$firstname', '$lastname','$email','$password','$confirm_password','$dob','$mobile','$city','$address')";
 
 $result = mysqli_query($conn, $query);
 
