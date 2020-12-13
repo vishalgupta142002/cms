@@ -1,39 +1,10 @@
 <?php
+session_start();
 
-$host = "localhost";
-$user_name = "root";
-$password = "";
-$database = "phpdb";
-$port = 3306;
-
-// Create Connection
-$conn = mysqli_connect($host, $user_name, $password, $database, $port);
-
-if(!$conn) {
-    die("Connection Failed: ".mysqli_connect_error());
-}else{
-   // die("Connected");
-    // exit();
-
-}
-$username = $_POST['username'];
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-
-
-
-$query = " INSERT INTO student (username, firstname, lastname) VALUES('$username', '$firstname', '$lastname')";
-
-$result = mysqli_query($conn, $query);
-
-if($result){
-    echo " <script>alert('Data has been inserted.');</script>";
-}else{
-    die("Something has been wrong.");
-}
-
-
+$token = (rand(10,10000000000));
+$_SESSION['token'] = $token;
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -88,7 +59,7 @@ if($result){
             <div class="row g-3">
                 <div class="col-md-8">
                     <h4 class="mb-3">Student Details</h4>
-                    <form class="needs-validation" novalidate action="../../controllers/users/Register.php"
+                    <form class="needs-validation" novalidate action="../../controllers/users/register.php"
                         method="post">
                         <div class="row g-3">
 
@@ -110,6 +81,7 @@ if($result){
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
+                                <input type="hidden" name="token" value="<?php echo $token;?>">
                             </div>
 
                             <div class="col-sm-6">
