@@ -1,3 +1,6 @@
+<?php
+ require_once ('header.php');
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,7 +17,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="../../../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
     <style>
     .bd-placeholder-img {
@@ -34,14 +37,14 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link href="app/views/users/signin.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
 
     <main class="form-signin">
         <form>
-            <img class="mb-4" src="../../../assets/image/logo.png" alt="" width="72" height="57">
+            <img class="mb-4" src="login-view/app/asset/image/logo.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <label for="inputEmail" class="visually-hidden">Email address</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -54,7 +57,7 @@
             </div>
             <a href="registration-view.php">Register</a>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+
         </form>
     </main>
 
@@ -63,3 +66,6 @@
 </body>
 
 </html>
+<?php
+require_once 'footer.php';
+?>

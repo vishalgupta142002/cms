@@ -1,4 +1,5 @@
 <?php
+ require_once ('header.php');
 session_start();
 
 $token = (rand(10,10000000000));
@@ -15,7 +16,7 @@ $_SESSION['token'] = $token;
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Checkout example · Bootstrap v5.0</title>
+    <title>register_view</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
 
@@ -51,13 +52,14 @@ $_SESSION['token'] = $token;
         <main>
 
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="../../../assets/image/logo.png" alt="" width="72" height="57">
+                <img class="d-block mx-auto mb-3 mt-3" src="../../../assets/image/logo.png" alt="" width="72"
+                    height="57">
                 <h2>Registration form</h2>
                 <p class="lead"></p>
             </div>
 
             <div class="row g-3">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <h4 class="mb-3">Student Details</h4>
                     <form class="needs-validation" novalidate action="../../controllers/users/register.php"
                         method="post">
@@ -126,11 +128,11 @@ $_SESSION['token'] = $token;
                         <div class="col-12">
                             <label for="gender" class="form-label">Gender <span class="text-muted"></span></label>
                             <div class="form-check">
-                                <input id="credit" name="gender" type="radio" class="form-check-input" checked required>
+                                <input id="male" name="gender" type="radio" class="form-check-input">
                                 <label class="form-check-label" for="credit">Male</label>
                             </div>
                             <div class="form-check">
-                                <input id="debit" name="gender" type="radio" class="form-check-input" required>
+                                <input id="female" name="gender" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="debit">Female</label>
                             </div>
 
@@ -189,13 +191,13 @@ $_SESSION['token'] = $token;
                         <hr class="my-4">
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="course[]" id="course">
+                            <input type="checkbox" class="form-check-input" name="course[]" value="btech" id="course">
                             <label class="form-check-label" for="course">BTECH
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="course[]" id="course">
+                            <input type="checkbox" class="form-check-input" name="course[]" value="bca" id="course">
                             <label class="form-check-label" for="course">BCA</label>
                         </div>
                         <hr class="my-4">
@@ -206,14 +208,7 @@ $_SESSION['token'] = $token;
             </div>
         </main>
 
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2017–2020 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
+
     </div>
 
 
@@ -223,3 +218,6 @@ $_SESSION['token'] = $token;
 </body>
 
 </html>
+<?php
+require_once 'footer.php';
+?>
