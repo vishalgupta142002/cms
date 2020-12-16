@@ -14,7 +14,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.0</title>
+
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
 
@@ -65,6 +65,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Edit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Delete</a>
                         </li>
                     </ul>
                     <form class="d-flex">

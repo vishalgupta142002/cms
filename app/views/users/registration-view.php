@@ -128,11 +128,12 @@ $_SESSION['token'] = $token;
                         <div class="col-12">
                             <label for="gender" class="form-label">Gender <span class="text-muted"></span></label>
                             <div class="form-check">
-                                <input id="male" name="gender" type="radio" class="form-check-input">
+                                <input id="male" name="gender" value="male" type="radio" class="form-check-input">
                                 <label class="form-check-label" for="credit">Male</label>
                             </div>
                             <div class="form-check">
-                                <input id="female" name="gender" type="radio" class="form-check-input" required>
+                                <input id="female" name="gender" value="female" type="radio" class="form-check-input"
+                                    required>
                                 <label class="form-check-label" for="debit">Female</label>
                             </div>
 
@@ -207,8 +208,6 @@ $_SESSION['token'] = $token;
                 </div>
             </div>
         </main>
-
-
     </div>
 
 

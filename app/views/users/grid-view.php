@@ -52,10 +52,9 @@
 
 
     </br>
-    <div class="container-sm pt-5">
+    <div class="container pt-5">
         <div class="row">
-            <div class="col-12">
-
+            <div class="col-md-6">
                 <?php
             $register ="SELECT * FROM student";
             $register_run = mysqli_query($conn,$register);
@@ -80,7 +79,8 @@
                             <th scope="col">city</th>
                             <th scope="col">address</th>
                             <th scope="col">course</th>
-
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,6 +102,12 @@
                             <td><?php echo $reg_row['city']; ?></td>
                             <td><?php echo $reg_row['address']; ?></td>
                             <td> <?php echo $reg_row['course']; ?></td>
+                            <td>
+                                <a href="edit.php?id=<?php echo $reg_row['id']; ?>" class="btn btn-info">Edit</a>
+                            </td>
+                            <td>
+                                <a href="delete.php" class="btn btn-info">Delete</a>
+                            </td>
                         </tr>
                         <?php }?>
                     </tbody>

@@ -44,7 +44,7 @@
 
     <main class="form-signin">
         <form>
-            <img class="mb-4" src="login-view/app/asset/image/logo.png" alt="" width="72" height="57">
+            <img class="mb-4" src="../../app/assets/image/logo.png" alt="logo" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <label for="inputEmail" class="visually-hidden">Email address</label>
             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -60,9 +60,6 @@
 
         </form>
     </main>
-
-
-
 </body>
 
 </html>

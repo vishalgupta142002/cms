@@ -1,7 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 include_once("../../config/database.php");
-
+ 
 $token = $_SESSION['token'];
 $form_token = $_POST['token'];
 //echo $_SESSION['token'].'<br>';
@@ -29,7 +33,8 @@ if($token == $form_token) {
     //echo $_SESSION['token'].'<br>';
     ///echo "<pre>";print_r($_REQUEST);
     if (isset($username) && isset($first_name) && isset($last_name)) {
-        $query = "  INSERT INTO student (username, firstname, lastname,email,password,confirm_password,gender,dob,mobile,city,address,course) VALUES('$username', '$firstname', '$lastname','$email','$password','$confirm_password','$gender','$dob','$mobile','$city','$address','$course')";
+        $query = "INSERT INTO student (username, firstname, lastname,email,password,confirm_password,gender,dob,mobile,city,address,course)
+        VALUES('$username', '$firstname', '$lastname','$email','$password','$confirm_password','$gender','$dob','$mobile','$city','$address','$course')";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
@@ -44,8 +49,4 @@ if($token == $form_token) {
     ///echo "$token === $form_token";
     die("You are not allowed to do this action.");
 }
-
-
-
-
 ?>
