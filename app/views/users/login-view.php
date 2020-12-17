@@ -17,7 +17,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../assets/css/bootstrap.css" rel="stylesheet">
 
     <style>
     .bd-placeholder-img {
@@ -37,32 +37,34 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="app/views/users/signin.css" rel="stylesheet">
+    <link href="../../views/users/signin.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
 
     <main class="form-signin">
-        <form>
-            <img class="mb-4" src="../../app/assets/image/logo.png" alt="logo" width="72" height="57">
+        <form method="post" action="?login">
+            <img class="mb-4" src="../../../assets/images/brand/bootstrap-logo.svg" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-            <label for="inputEmail" class="visually-hidden">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="user_name" class="visually-hidden">Username</label>
+            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="" required autofocus>
             <label for="inputPassword" class="visually-hidden">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <a href="registration-view.php">Register</a>
+            <a href="?register">Register</a>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-
+            <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
         </form>
     </main>
+
 </body>
 
 </html>
+
 <?php
 require_once 'footer.php';
 ?>

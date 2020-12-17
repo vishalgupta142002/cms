@@ -32,7 +32,7 @@ if($token == $form_token) {
     unset($_SESSION['token']);
     //echo $_SESSION['token'].'<br>';
     ///echo "<pre>";print_r($_REQUEST);
-    if (isset($username) && isset($first_name) && isset($last_name)) {
+    if (isset($username) && isset($firstname) && isset($lastname)) {
         $query = "INSERT INTO student (username, firstname, lastname,email,password,confirm_password,gender,dob,mobile,city,address,course)
         VALUES('$username', '$firstname', '$lastname','$email','$password','$confirm_password','$gender','$dob','$mobile','$city','$address','$course')";
         $result = mysqli_query($conn, $query);
