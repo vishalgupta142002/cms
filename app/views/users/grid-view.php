@@ -1,7 +1,25 @@
 <?php
- require_once "header.php";
+//   require_once "header.php";
  include_once("../../config/database.php");
 ?>
+<?php
+
+if (isset($_GET['del'])){
+    $id = $_GET['del'];
+    $query = "DELETE FROM student WHERE id = $id";
+    $query_run= mysqli_query($conn, $$query);
+    if (!$query_run) {
+        echo " data deleted from database";
+    } else {
+        die("can not delete data from database: " . mysqli_error($query_run));
+    }
+}
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="en" class="h-100">
 
@@ -18,7 +36,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
     </script>
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.0</title>
+    <title>listing page</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
 
@@ -106,7 +124,8 @@
                                 <a href="edit.php?id=<?php echo $reg_row['id']; ?>" class="btn btn-info">Edit</a>
                             </td>
                             <td>
-                                <a href="delete.php" class="btn btn-info">Delete</a>
+                                <a href="<?php $_SERVER['PHP_SELF']?>?del=<?php echo $reg_row['id']?>" ;
+                                    class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         <?php }?>
@@ -117,7 +136,6 @@
                 else{
                     echo "no record found";
                 }
-
             ?>
             </div>
         </div>
