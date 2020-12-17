@@ -218,7 +218,7 @@ else
                         </div>
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-info btn-md name=" update" type="submit">update</button>
+                        <button class="w-100 btn btn-info btn-md" name="update" type="submit">update</button>
                     </form>
                 </div>
             </div>
