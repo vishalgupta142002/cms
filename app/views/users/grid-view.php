@@ -7,7 +7,7 @@
 if (isset($_GET['del'])){
     $id = $_GET['del'];
     $query = "DELETE FROM student WHERE id = $id";
-    $query_run= mysqli_query($conn, $$query);
+    $query_run= mysqli_query($conn, $query);
     if (!$query_run) {
         echo " data deleted from database";
     } else {
