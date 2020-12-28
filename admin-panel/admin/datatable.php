@@ -30,12 +30,15 @@ include('config/database.php')
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">DataTable with default features</h3>
+                        <h3 class="card-title">DataTable </h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <?php
-                   $register ="SELECT * FROM employee";
+                          $limit =10 ;
+                          $page =$_GET['page'];
+                          $offset = ($page -1) * $limit;
+                   $register ="SELECT * FROM employee LIMIT {$offset},{$limit}";
                    $register_run = mysqli_query($conn,$register);
   
                    if(mysqli_num_rows($register_run) >0)
@@ -49,6 +52,15 @@ include('config/database.php')
                                     <th>first_name</th>
                                     <th>last_name</th>
                                     <th>password</th>
+                                    <th>email</th>
+                                    <th>address</th>
+                                    <th>mobile</th>
+                                    <th>country</th>
+                                    <th>state</th>
+                                    <th>zip</th>
+                                    <th>course</th>
+                                    <th>gender</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,6 +74,15 @@ include('config/database.php')
                                     <td><?php echo $reg_row['first_name']; ?></td>
                                     <td><?php echo $reg_row['last_name']; ?></td>
                                     <td><?php echo $reg_row['password']; ?></td>
+                                    <td><?php echo $reg_row['password']; ?></td>
+                                    <td><?php echo $reg_row['email']; ?></td>
+                                    <td><?php echo $reg_row['address']; ?></td>
+                                    <td><?php echo $reg_row['mobile']; ?></td>
+                                    <td><?php echo $reg_row['country']; ?></td>
+                                    <td><?php echo $reg_row['state']; ?></td>
+                                    <td><?php echo $reg_row['zip']; ?></td>
+                                    <td><?php echo $reg_row['course']; ?></td>
+                                    <td><?php echo $reg_row['gender']; ?></td>
                                 </tr>
                                 <?php }?>
                             </tbody>
@@ -74,6 +95,31 @@ include('config/database.php')
                   ?>
                     </div>
                 </div>
+                <?php
+                $sql ="SELECT * FROM employee";
+                $result =mysqli_query($conn,$sql) or die("query failed");
+                if(mysqli_num_rows($result)>0){
+                    $total_record = mysqli_num_rows($result);
+                    $limit =10 ;
+                    $total_page = ceil($total_record/$limit);
+
+                    echo '  <ul class="pagination ">';
+                    for($i=1; $i <=$total_page; $i++ ){
+                    echo '<li class="page-item"><a class="page-link" href="datatable.php?page='.$i.'">'.$i.'</a></li>';
+                    }
+                    echo '</ul>';
+                }
+
+                ?>
+                <!-- <nav aria-label="Page navigation example">
+
+
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+
+                </nav> -->
             </div>
         </div>
     </div>
