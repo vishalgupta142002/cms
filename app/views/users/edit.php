@@ -1,6 +1,6 @@
 <?php
  require_once "header.php";
- include_once("../../config/database.php");
+ include_once("config/database.php");
 ?>
 <?php
 $id =$_GET['id'];
